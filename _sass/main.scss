@@ -1,0 +1,80 @@
+$color-text: #ddd;
+$color-border: #a4487b;
+$color-light: #db99bf;
+$color-container: #803156;
+$color-main: #512640;
+$color-bg: #261023;
+
+$main-width: 1000px;
+
+$border: 3px solid $color-border;
+
+
+@mixin baba-border {
+    border-image-slice: 27 27 27 27 fill;
+    border-image-width: 20px;
+    border-image-repeat: stretch;
+    border-image-source: url("assets/img/border.gif");
+}
+
+body {
+    font: 12pt "Cabin", Verdana, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    line-height: 1.35;
+
+    background-image: url("assets/img/background.png");
+    background-attachment: fixed;
+    background-size: 360px 720px;
+
+    image-rendering: pixelated;
+
+    background-color: $color-bg;
+    color: $color-text;
+    overflow-wrap: break-word;
+}
+
+main {
+    position: relative;
+    max-width: $main-width;
+    margin: 0 auto;
+    padding: 0;
+    background-color: $color-main;
+    background-image: url("assets/img/grid.png");
+    border: $border;
+    margin-top: 1em;
+    overflow:hidden;
+    border-radius: 8px;
+}
+
+article {
+    margin: 2em;
+    padding: 1em 1em;
+    @include baba-border;
+}
+
+header {
+    max-width: $main-width;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: $border;
+    height:64px;
+    background-color: $color-bg;
+    &>#index {
+        
+
+        &>#logo {
+            border: none;
+            border-right: $border;
+            height:100%;
+            background-image: url("assets/img/fatpaws_button.png");
+            background-size: 100% 100%;
+            &>img {
+                width:160px;
+                margin: 8px;
+                margin-top: 0; margin-bottom: 0;
+            }
+        }
+    }
+}
