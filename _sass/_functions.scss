@@ -1,0 +1,6 @@
+@function img($src) {
+    @return url("assets/img/#{$src}");
+}
+@mixin responsive($query) {
+    @media ( min-width: $query ) {@content;}
+}

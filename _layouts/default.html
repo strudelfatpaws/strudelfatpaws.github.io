@@ -7,31 +7,29 @@
         <meta charset="utf-8">
         <title>{{ page.title }}</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Sour+Gummy:wdth,wght@112.5,600&display=swap" rel="stylesheet">
-        
         <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="main.css">
 
         {% if page.embed %}
-            <meta property="og:type" content="website">
-            <meta property="og:site_name" content="strudelfatpaws.github.io">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="strudelfatpaws.github.io">
 
-            <meta property="og:title" content="{{ page.embed.title | default: page.title }}">
+        <meta property="og:title" content="{{ page.embed.title | default: page.title }}">
 
-            {% if page.embed.desc %}
-                <meta property="og:description" content="{{ page.embed.desc }}">
-                <meta name="description" content="{{ page.embed.desc }}">
-            {% endif %}
+        {% if page.embed.desc %}
+            <meta property="og:description" content="{{ page.embed.desc }}">
+            <meta name="description" content="{{ page.embed.desc }}">
+        {% endif %}
 
-            <meta name="theme-color" content="{{ page.embed.color | default: "#f75d7e" }}">
+        <meta name="theme-color" content="{{ page.embed.color | default: "#f75d7e" }}">
         {% endif %}
     </head>
     <body>
-        <main>
+        <div id="container">
             {%  include header.html %}
-            {{ content }}
-        </main>
+            <div class="grid">
+                {{ content }}
+            </div>
+        </div>
     </body>
 </html>
