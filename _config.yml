@@ -3,13 +3,16 @@ title: "Strudel's Site"
 defaults:
   -
     scope:
-      path: "" # an empty string here means all files in the project
+      path: "docs" # an empty string here means all files in the project
+      type: "pages"
     values:
       layout: "default"
 
 sass:
     style: compressed
     sass_dir: _sass
+    quiet_deps: true # https://github.com/just-the-docs/just-the-docs/issues/1541
+    silence_deprecations: ['import'] # https://github.com/just-the-docs/just-the-docs/issues/1607
 
 jekyll-minifier:
   uglifier_args:
@@ -20,5 +23,6 @@ jekyll-minifier:
 plugins:
   - jekyll-minifier
 
+baseurl: ""
 repository: "strudelfatpaws/strudelfatpaws.github.io"
 url: "https://strudelfatpaws.github.io"
