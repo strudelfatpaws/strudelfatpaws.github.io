@@ -3,16 +3,18 @@ title: "Strudel's Site"
 defaults:
   -
     scope:
-      path: "docs" # an empty string here means all files in the project
-      type: "pages"
+      path: "" # an empty string here means all files in the project
     values:
       layout: "default"
+  -
+    scope:
+      path: "*.md"
+    values:
+      layout: "markdown"
 
 sass:
     style: compressed
     sass_dir: _sass
-    quiet_deps: true # https://github.com/just-the-docs/just-the-docs/issues/1541
-    silence_deprecations: ['import'] # https://github.com/just-the-docs/just-the-docs/issues/1607
 
 jekyll-minifier:
   uglifier_args:
