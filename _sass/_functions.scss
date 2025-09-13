@@ -1,6 +1,11 @@
 @function img($src) {
-    @return url("assets/img/#{$src}");
+    @return url("/assets/img/#{$src}");
 }
 @mixin responsive($query) {
     @media ( min-width: $query ) {@content;}
+}
+
+// basic 8px margin/padding unit
+@function w($factor) {
+    @return 8px * $factor;
 }

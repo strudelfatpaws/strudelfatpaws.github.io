@@ -7,29 +7,28 @@
     box-sizing: border-box;
 }
 
-@mixin baba-border {
+@mixin baba-border($img: "border.gif") {
     $_slice: 27 27 27 27 fill;
     $_width: 20px;
     $_repeat: stretch;
-    $_source: img("border.gif");
+    $_source: img($img);
     $_outset: 3px;
 
     // support browsers without border-image
     border: $border;
     background-color: $c-bg;
-    border-radius: 0.5em;
+    border-radius: w(2);
     
     border-image: $_source $_slice / $_width / $_outset $_repeat;
 }
 
 @mixin grid-bg($s, $c1, $c2) {
     background: repeating-conic-gradient($c1 0% 25%, $c2 0% 50%) 50% / #{$s $s};
-    background-attachment: fixed;
     background-color: $c2;
 }
 
 body {
-    font: 12pt "Outfit", Verdana, sans-serif;
+    font: 11pt "Outfit", Verdana, sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings: "wdth" 100;
@@ -51,16 +50,16 @@ body {
 
 #container {
     position: relative;
-    max-width: unquote("min(#{$desktop}, calc(100vw - 4em))");
+    max-width: unquote("min(#{$desktop}, calc(100vw - #{w(4)}))");
 
-    margin: 1em auto;
+    margin: w(2) auto;
 
-    @include grid-bg(36px, #431d34, $c-main);
+    @include grid-bg(36px, $c-grid, $c-main);
 
     border: $border;
-    margin-top: 1em;
+    margin-top: w(2);
     overflow:hidden;
-    border-radius: 8px;
+    border-radius: w(1);
 
     box-shadow: 0px 3px 0px $c-border;
 }
@@ -68,15 +67,14 @@ body {
 main {
     filter: drop-shadow(0px 3px 0px $c-border);
     @include baba-border;
-    padding: 1em;
-    grid-area: 1/1/6/6;
+    padding: w(2);
 }
 
 header {
     $_h: 64px;
     $_p: 8px;
 
-    margin-bottom: 1em;
+    margin-bottom: w(2);
     width: 100%;
     height: $_h;
     border-bottom: $border;
@@ -101,9 +99,23 @@ header {
 }
 
 .grid {
-    margin: 2em;
+    $_g: w(4);
+    margin: $_g;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
-    gap:2em;
+    gap:$_g;
+}
+
+a {
+    color: $c-light;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+h1 {
+    @include baba-border("border-inv.gif");
+    letter-spacing: -0.03ch;
+    padding: 0 w(1);
 }

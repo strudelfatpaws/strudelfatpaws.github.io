@@ -10,3 +10,15 @@ defaults:
 sass:
     style: compressed
     sass_dir: _sass
+
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+    output:
+      comments: copyright
+
+plugins:
+  - jekyll-minifier
+
+repository: "strudelfatpaws/strudelfatpaws.github.io"
+url: "https://strudelfatpaws.github.io"
