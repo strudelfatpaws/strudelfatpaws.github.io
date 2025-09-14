@@ -10,7 +10,7 @@ defaults:
     scope:
       path: "*.md"
     values:
-      layout: "markdown"
+      layout: "default"
 
 sass:
     style: compressed

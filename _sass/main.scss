@@ -2,6 +2,7 @@
 @import "_functions";
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
 
 *, *::after, *::before {
     box-sizing: border-box;
@@ -54,57 +55,59 @@ body {
 
     margin: w(2) auto;
 
-    @include grid-bg(36px, $c-grid, $c-main);
+    @include grid-bg(8px, $c-grid, $c-main);
 
     border: $border;
     margin-top: w(2);
     overflow:hidden;
-    border-radius: w(1);
+    border-radius: w(2);
 
-    box-shadow: 0px 3px 0px $c-border;
+    box-shadow: 3px 3px 0px $c-border;
 }
 
 main {
-    filter: drop-shadow(0px 3px 0px $c-border);
+    filter: drop-shadow(3px 3px 0px $c-border);
     @include baba-border;
     padding: w(2);
+    margin: w(3)
 }
 
 header {
-    $_h: 64px;
     $_p: 8px;
 
     margin-bottom: w(2);
     width: 100%;
-    height: $_h;
     border-bottom: $border;
     background-color: $c-bg;
     & a {
         display:inline-block;
         padding: $_p;
         background: $c-main;
-        background-size: cover;
         border-right: $border;
-        max-height: 100%;
-        &:hover {
-            filter:brightness(120%)
+        & svg {
+            vertical-align: sub;
+            margin:0 4px;
+            color: $c-border;
+            transition-duration: 0.2s;
+            filter: drop-shadow(0px 0px 0px transparent);
+            transform: none;
         }
-
-        & img {
-
-        max-width: 100%;
-        max-height: $_h - ($_p * 2) - 2px;
+        &:hover svg {
+            color: $c-light;
+            filter: drop-shadow(4px 4px 0px $c-bg);
+            transform: translate(-1px, -1px);
         }
     }
-}
 
-.grid {
-    $_g: w(4);
-    margin: $_g;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    gap:$_g;
+    & .ph-paw-print::before {
+        margin-left: auto;
+        display: inline-block;
+        position: absolute;
+        right: w(1.5);
+        top: w(1);
+        color: #b54081;
+        font-size: 40px;
+    }
 }
 
 a {
@@ -114,8 +117,23 @@ a {
         text-decoration: underline;
     }
 }
+
 h1 {
     @include baba-border("border-inv.gif");
     letter-spacing: -0.03ch;
     padding: 0 w(1);
+}
+
+
+.logo {
+    font-size: 2em;
+    font-weight: 900;
+    & span {
+        $amt: 0.35;
+        letter-spacing: -1ch * $amt;
+        margin-right: 1ch * $amt;
+    }
+    &:hover {
+        text-decoration: none;
+    }
 }

@@ -11,6 +11,17 @@
         <link rel="stylesheet" href="/assets/css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+        />
+
         {% if page.embed %}
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="strudelfatpaws.github.io">
@@ -28,9 +39,9 @@
     <body>
         <div id="container">
             {%  include header.html %}
-            <div class="grid">
+            <main>
                 {{ content }}
-            </div>
+            </main>
         </div>
     </body>
 </html>
