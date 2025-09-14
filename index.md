@@ -1,7 +1,7 @@
 ---
 ---
 
-# welcome to strwdylzone
+# welcome to strudelzone
 
 i havent finished coding the layout and css and whatever for this site yet 
 

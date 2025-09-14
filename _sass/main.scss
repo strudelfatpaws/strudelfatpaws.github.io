@@ -93,8 +93,8 @@ header {
             transform: none;
         }
         &:hover svg {
-            color: $c-light;
-            filter: drop-shadow(4px 4px 0px $c-bg);
+            color: $c-yellow;
+            filter: drop-shadow(4px 4px 0px $c-darkest);
             transform: translate(-1px, -1px);
         }
     }
@@ -104,14 +104,17 @@ header {
         display: inline-block;
         position: absolute;
         right: w(1.5);
-        top: w(1);
-        color: #b54081;
+        top: w(1.5);
+        background: $c-border;
+        padding: 2px;
+        border-radius: 25%;
+        color: $c-bg;
         font-size: 40px;
     }
 }
 
 a {
-    color: $c-light;
+    color: $c-yellow;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
