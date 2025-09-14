@@ -8,19 +8,10 @@
     box-sizing: border-box;
 }
 
-@mixin baba-border($img: "border.gif") {
-    $_slice: 27 27 27 27 fill;
-    $_width: 20px;
-    $_repeat: stretch;
-    $_source: img($img);
-    $_outset: 3px;
-
-    // support browsers without border-image
+@mixin baba-border() {
     border: $border;
     background-color: $c-bg;
     border-radius: w(2);
-    
-    border-image: $_source $_slice / $_width / $_outset $_repeat;
 }
 
 @mixin grid-bg($s, $c1, $c2) {
@@ -79,16 +70,19 @@ header {
     width: 100%;
     border-bottom: $border;
     background-color: $c-bg;
-    & a {
+    position: relative;
+
+    & .logo {
         display:inline-block;
         padding: $_p;
-        background: $c-main;
+        background-color: $c-main;
         border-right: $border;
         & svg {
+            transition-duration: 0.2s;
+            --c: #{$c-main};
             vertical-align: sub;
             margin:0 4px;
             color: $c-border;
-            transition-duration: 0.2s;
             filter: drop-shadow(0px 0px 0px transparent);
             transform: none;
         }
@@ -96,21 +90,86 @@ header {
             color: $c-yellow;
             filter: drop-shadow(4px 4px 0px $c-darkest);
             transform: translate(-1px, -1px);
+            & path {
+                transform: scale(0.5);
+            }
         }
     }
 
-    & .ph-paw-print::before {
+    & nav {
         margin-left: auto;
-        display: inline-block;
+        display: inline-flex;
         position: absolute;
-        right: w(1.5);
-        top: w(1.5);
-        background: $c-border;
-        padding: 2px;
-        border-radius: 25%;
-        color: $c-bg;
-        font-size: 40px;
+        vertical-align: middle;
+
+        margin: w(1);
+        gap: w(1);
+
+        & a { //navbar item
+            $trans: 0.3s;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background-color: $c-border;
+            padding: w(0.75);
+            border-radius: w(1);
+            color: $c-bg;
+            transition-duration: $trans;
+            gap: 0;
+
+            & .txt { // text grid container
+                font-weight: bold;
+                display: grid;
+                grid-template-columns: 0fr;
+                transition: grid-template-columns $trans, margin-right $trans;
+                overflow: hidden;
+                margin-left: 0.3em;
+                margin-right: -0.3em;
+                & span { // inner text
+                    min-width: 0;
+                    max-height: 100%;
+                    transition: visibility $trans;
+                    visibility: hidden;
+                    white-space: nowrap;
+                }
+            }
+
+            &:hover {
+                text-decoration: none;
+                background-color: $c-yellow;
+                padding-right: 0.5em;
+                & .txt {
+                    grid-template-columns: 1fr;
+                    margin-right: 0.2em;
+                    & span {
+                        visibility: visible;
+                    }
+                }
+            }
+            & i[class^="ph"] { // icon
+                font-size: 32px;
+            }
+
+        }
     }
+
+    & .deco-1 {
+        position: absolute;
+        color: $c-grid;
+        right: w(3);
+    }
+}
+
+
+.navbar-tip {
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	white-space: nowrap;
+	padding-left: 0.5em;
+	padding-bottom: 0.5em;
+    color: $c-border;
+    font-weight: bold;
 }
 
 a {
@@ -122,9 +181,10 @@ a {
 }
 
 h1 {
-    @include baba-border("border-inv.gif");
+    border-radius: w(2);
     letter-spacing: -0.03ch;
-    padding: 0 w(1);
+    padding: w(0.5) w(1.5);
+    background: linear-gradient(to right, $c-border, transparent)
 }
 
 

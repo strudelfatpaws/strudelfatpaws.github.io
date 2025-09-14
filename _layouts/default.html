@@ -7,19 +7,25 @@
         <meta charset="utf-8">
         <title>{{ page.title }}</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet" type="text/css" media="all">
+        <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="/assets/css/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+        <!-- REMINDER: remove any unused icons when ui design is done, we're currently loading All of them -->
         <link
             rel="stylesheet"
             type="text/css"
-            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.min.css"
         />
         <link
             rel="stylesheet"
             type="text/css"
-            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.min.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.min.css"
         />
 
         {% if page.embed %}
