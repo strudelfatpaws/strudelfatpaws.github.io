@@ -6,11 +6,6 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: "default"
-  -
-    scope:
-      path: "*.md"
-    values:
-      layout: "default"
 
 sass:
     style: compressed
@@ -26,5 +21,5 @@ plugins:
   - jekyll-minifier
 
 baseurl: ""
-repository: "strudelfatpaws/strudelfatpaws.github.io"
-url: "https://strudelfatpaws.github.io"
+repository: "strwdyl/strwdyl.github.io"
+url: "https://strwdyl.github.io"
