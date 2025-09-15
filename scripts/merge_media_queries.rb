@@ -27,7 +27,7 @@ def merge_media_queries(css)
     merged_css << "\n#{media} {\n#{blocks.join("\n")}\n}"
   end
   
-  merged_css
+  merged_css.gsub(/\s+/, ' ')
 end
 
 
