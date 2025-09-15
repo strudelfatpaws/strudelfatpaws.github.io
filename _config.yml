@@ -20,6 +20,11 @@ jekyll-minifier:
 plugins:
   - jekyll-minifier
 
+exclude:
+  - "/scripts"
+  - "Gemfile"
+  - "Gemfile.lock"
+
 baseurl: ""
 repository: "strwdyl/strwdyl.github.io"
 url: "https://strwdyl.github.io"
