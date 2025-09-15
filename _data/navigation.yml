@@ -1,0 +1,10 @@
+nav:
+  - text: nunna these do anything yet
+    link: "/"
+    icon: "ph-bold ph-info"
+  - text: Tooltip text
+    link: "/"
+    icon: "ph-fill ph-paw-print"
+  - text: meow hi
+    link: "/"
+    icon: "ph-bold ph-heart-straight"

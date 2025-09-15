@@ -8,21 +8,15 @@
         <use xlink:href="/assets/img/deco-1.svg#deco" href="/assets/img/deco-1.svg#deco"></use>
     </svg>
     <nav>
-        <a href="/">
-            <i class="ph-bold ph-info"></i>
-            <div class="txt"><span>nunna these do anything yet</span></div>
+    {% for item in site.data.navigation.nav %}
+        <a href="{{ item.link }}">
+            <i class="{{ item.icon }}"></i>
+            <div class="txt"><span>{{ item.text }}</span></div>
         </a>
-        <a href="/">
-            <i class="ph-fill ph-paw-print"></i>
-            <div class="txt"><span>Tooltip text</span></div>
-        </a>
-        <a href="/">
-            <i class="ph-bold ph-heart-straight"></i>
-            <div class="txt"><span>Tooltip text</span></div>
-        </a>
+    {% endfor %}
     </nav>
     <div class="navbar-tip">
         <i class="ph-bold ph-arrow-bend-left-up"></i>
-        <span id="navbar-tiptext">hover these they do things</span>
+        <span id="navbar-tiptext">site navigation</span>
     </div>
 </header>

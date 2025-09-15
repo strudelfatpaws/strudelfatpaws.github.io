@@ -20,7 +20,7 @@ body {
     image-rendering: pixelated;
     color: $c-text;
 
-    @include responsive($tablet) {
+    @include responsive($s-lg) {
         background-color: $c-bg;
         background-image:
             linear-gradient(to left, $c-darkest 14%, transparent 15%),
@@ -37,8 +37,8 @@ body {
     min-height: 100vh;
     @include grid-bg(8px, $c-grid, $c-main);
 
-    @include responsive($tablet) {
-        max-width: unquote("min(#{$desktop}, calc(100vw - #{w(4)}))");
+    @include responsive($s-lg) {
+        max-width: unquote("min(#{$s-xl}, calc(100vw - #{w(4)}))");
         border: $border;
         margin: w(2) auto;
         border-radius: w(2);
@@ -55,8 +55,12 @@ main {
     border: $border;
     background-color: $c-bg;
     border-radius: w(2);
-    padding: w(2);
-    margin: w(3)
+    padding: w(1.5);
+    margin: w(2);
+    @include responsive($s-sm) {
+        margin: w(3);
+        padding: w(2);
+    }
 }
 
 header {
@@ -71,22 +75,30 @@ header {
     & .logo {
         display: inline-block;
         padding: $_p;
-        background-color: $c-main;
-        border-right: $border;
+        background-color: $c-bg;
 
         & svg {
             transition-duration: 0.2s;
-            --c: #{$c-main};
+            --c: #{$c-bg};
             vertical-align: sub;
             margin: 0 4px;
             color: $c-border;
             box-shadow: 0px 0px 0px transparent;
             transform: none;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        width: 50%;
+        @include responsive($s-sm) {
+            width: unset;
+            border-right: $border;
         }
 
         &:hover svg {
+            --c: #{$c-main};
             color: $c-yellow;
-            filter: drop-shadow(4px 4px 0px $c-darkest);
+            filter: drop-shadow(4px 4px 0px $c-border);
             transform: translate(-1px, -1px);
         }
     }
@@ -158,9 +170,14 @@ header {
     }
 
     & .deco-1 {
+        display: none;
         position: absolute;
         color: $c-grid;
         right: w(3);
+        top: -8px;
+        @include responsive($s-md) {
+            display: initial;
+        }
     }
 }
 
