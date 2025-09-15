@@ -1,12 +1,20 @@
+//// functions
 @function img($src) {
         @return url("/assets/img/#{$src}");
-}
-
-@mixin responsive($query) {
-        @media ( min-width: $query ) {@content;}
 }
 
 // basic 8px margin/padding unit
 @function w($factor) {
         @return 8px * $factor;
+}
+
+//// mixins
+
+@mixin responsive($query) {
+        @media ( min-width: $query ) {@content;}
+}
+
+@mixin grid-bg($s, $c1, $c2) {
+    background: repeating-conic-gradient($c1 0% 25%, $c2 0% 50%) 50% / #{$s $s};
+    background-color: $c2;
 }
