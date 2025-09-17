@@ -72,12 +72,12 @@ header {
     background-color: $c-bg;
     position: relative;
 
-    & .logo {
+    .logo {
         display: inline-block;
         padding: $_p;
         background-color: $c-bg;
 
-        & svg {
+        svg {
             transition-duration: 0.2s;
             --c: #{$c-bg};
             vertical-align: sub;
@@ -103,7 +103,7 @@ header {
         }
     }
 
-    & nav {
+    nav {
         display: inline-flex;
         margin-left: auto;
         position: absolute;
@@ -112,7 +112,7 @@ header {
         margin: w(1);
         gap: w(1);
 
-        & a {
+        a {
             //navbar item
             $trans: 0.3s;
 
@@ -126,7 +126,7 @@ header {
             transition-duration: $trans;
             gap: 0;
 
-            & .txt {
+            .txt {
                 // text grid container
                 font-weight: bold;
                 display: grid;
@@ -136,7 +136,7 @@ header {
                 margin-left: 0.3em;
                 margin-right: -0.3em;
 
-                & span {
+                span {
                     // inner text
                     min-width: 0;
                     max-height: 100%;
@@ -161,7 +161,7 @@ header {
                 }
             }
 
-            & i[class^="ph"] {
+            i[class^="ph"] {
                 // icon
                 font-size: 32px;
             }
@@ -169,7 +169,7 @@ header {
         }
     }
 
-    & .deco-1 {
+    .deco-1 {
         display: none;
         position: absolute;
         color: $c-grid;
@@ -179,18 +179,18 @@ header {
             display: initial;
         }
     }
-}
 
-
-.navbar-tip {
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
-    white-space: nowrap;
-    padding-left: 0.5em;
-    padding-bottom: 0.5em;
-    color: $c-border;
-    font-weight: bold;
+    
+    .navbar-tip {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        white-space: nowrap;
+        padding-left: 0.5em;
+        padding-bottom: 0.5em;
+        color: $c-border;
+        font-weight: bold;
+    }
 }
 
 a {
@@ -214,7 +214,7 @@ h1 {
     font-size: 2em;
     font-weight: 900;
 
-    & span {
+    span {
         $amt: 0.35;
         letter-spacing: -1ch * $amt;
         margin-right: 1ch * $amt;
