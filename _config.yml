@@ -24,6 +24,9 @@ exclude:
   - "/scripts"
   - "Gemfile"
   - "Gemfile.lock"
+  - "vendor" # https://github.com/jekyll/jekyll/issues/5267#issuecomment-241379902
+
+github: [metadata]
 
 baseurl: ""
 repository: "strwdyl/strwdyl.github.io"
