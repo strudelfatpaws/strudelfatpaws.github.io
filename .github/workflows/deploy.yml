@@ -48,11 +48,6 @@ jobs:
       - name: Additional CSS minification that jekll_minifier doesn't do
         run: ruby scripts/merge_media_queries.rb
 
-      - name: hold on im gonna do some debugging
-        run: |
-          apt-get install tree
-          tree -d /site/
-
       - name: Minify Action
         uses: anthonyftwang/minify-action@v1.0.1
 
