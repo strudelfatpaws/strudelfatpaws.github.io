@@ -29,3 +29,9 @@ gem "wdm", "~> 0.1", :platforms => [:windows]
 # Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
+
+# For site minification
+gem "cssminify2", "~> 2.1.0"
+gem "htmlcompressor", "~> 0.4.0"
+gem "json-minify", "~> 0.0.3"
+gem "terser", "~> 1.2.3"
