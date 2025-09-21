@@ -7,16 +7,15 @@
     <svg class="deco-1" width="96" height="96" viewBox="16 0 64 96">
         <use xlink:href="/assets/img/deco-1.svg#deco" href="/assets/img/deco-1.svg#deco"></use>
     </svg>
+
     <nav>
-    {% for item in site.data.navigation.nav %}
-        <a href="{{ item.link }}">
-            <i class="{{ item.icon }}"></i>
-            <div class="txt"><span>{{ item.text }}</span></div>
-        </a>
-    {% endfor %}
+        {% for item in site.data.navigation.nav %}
+            <a href="{{ item.link }}" data-nav-text="{{ item.text }}">
+                <i class="{{ item.icon }}"></i>
+            </a>
+        {% endfor %}
     </nav>
-    <div class="navbar-tip">
-        <i class="ph-bold ph-arrow-bend-left-up"></i>
-        <span id="navbar-tiptext">site navigation</span>
-    </div>
+    <div class="navbar-tip">{{ page.nav_title | default: page.title }}</div>
+
+    <script src="/assets/js/header_nav.js"></script>
 </header>

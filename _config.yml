@@ -11,15 +11,6 @@ sass:
     style: compressed
     sass_dir: _sass
 
-jekyll-minifier:
-  uglifier_args:
-    harmony: true
-    output:
-      comments: copyright
-
-plugins:
-  - jekyll-minifier
-
 exclude:
   - "/scripts"
   - "Gemfile"

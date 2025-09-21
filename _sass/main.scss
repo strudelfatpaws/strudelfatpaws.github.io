@@ -64,8 +64,6 @@ main {
 }
 
 header {
-    $_p: 8px;
-
     margin-bottom: w(2);
     width: 100%;
     border-bottom: $border;
@@ -74,7 +72,7 @@ header {
 
     .logo {
         display: inline-block;
-        padding: $_p;
+        padding: w(1) w(1.5);
         background-color: $c-bg;
 
         svg {
@@ -104,10 +102,9 @@ header {
     }
 
     nav {
+        
         display: inline-flex;
-        margin-left: auto;
         position: absolute;
-        vertical-align: middle;
 
         margin: w(1);
         gap: w(1);
@@ -116,56 +113,18 @@ header {
             //navbar item
             $trans: 0.3s;
 
-            display: flex;
-            overflow: hidden;
-            align-items: center;
             background-color: $c-border;
             padding: w(0.75);
             border-radius: w(1);
             color: $c-bg;
-            transition-duration: $trans;
-            gap: 0;
-
-            .txt {
-                // text grid container
-                font-weight: bold;
-                display: grid;
-                grid-template-columns: 0fr;
-                transition: grid-template-columns $trans, margin-right $trans;
-                overflow: hidden;
-                margin-left: 0.3em;
-                margin-right: -0.3em;
-
-                span {
-                    // inner text
-                    min-width: 0;
-                    max-height: 100%;
-                    transition: visibility $trans;
-                    visibility: hidden;
-                    white-space: nowrap;
-                }
-            }
+            transition-duration: 0.3s;
+            font-size: 32px;
+            line-height: 0;
 
             &:hover {
                 text-decoration: none;
                 background-color: $c-yellow;
-                padding-right: 0.5em;
-
-                & .txt {
-                    grid-template-columns: 1fr;
-                    margin-right: 0.2em;
-
-                    & span {
-                        visibility: visible;
-                    }
-                }
             }
-
-            i[class^="ph"] {
-                // icon
-                font-size: 32px;
-            }
-
         }
     }
 
@@ -180,7 +139,6 @@ header {
         }
     }
 
-    
     .navbar-tip {
         display: inline-block;
         position: absolute;
@@ -190,6 +148,9 @@ header {
         padding-bottom: 0.5em;
         color: $c-border;
         font-weight: bold;
+        &.hovered {
+            color: $c-yellow;
+        }
     }
 }
 
@@ -209,18 +170,3 @@ h1 {
     background: linear-gradient(to right, $c-border, transparent)
 }
 
-
-.logo {
-    font-size: 2em;
-    font-weight: 900;
-
-    span {
-        $amt: 0.35;
-        letter-spacing: -1ch * $amt;
-        margin-right: 1ch * $amt;
-    }
-
-    &:hover {
-        text-decoration: none;
-    }
-}

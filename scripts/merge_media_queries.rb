@@ -31,10 +31,10 @@ def merge_media_queries(css)
 end
 
 
-css_dir = File.join(Dir.pwd, '_site', 'assets', 'css')
+site_dir = File.join(Dir.pwd, '_site')
 
-if Dir.exist?(css_dir)
-  Dir.glob(File.join(css_dir, '*.css')).each do |file|
+if Dir.exist?(site_dir)
+  Dir.glob(File.join(site_dir, '**', '*.css')).each do |file|
     content = File.read(file)
     merged = merge_media_queries(content)
     
