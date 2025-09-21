@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'find'
+require 'minify_html'
 
 def merge_media_queries(css)
   media_blocks = Hash.new { |h, k| h[k] = [] }
@@ -32,12 +33,14 @@ end
 
 
 site_dir = File.join(Dir.pwd, '_site')
+extensions = %w[css html js]
 
 if Dir.exist?(site_dir)
-  Dir.glob(File.join(site_dir, '**', '*.css')).each do |file|
+  files = extensions.flat_map { |ext| Dir.glob(File.join(site_dir, '**', "*.#{ext}")) }
+  files.each do |file|
     content = File.read(file)
-    merged = merge_media_queries(content)
-    
-    File.write(file, merged)
+    content = merge_media_queries(content) if File.extname(file) == '.css'
+    content = minify_html(content, { :minify_css => true, :minify_js => true })
+    File.write(file, content)
   end
 end
