@@ -51,7 +51,7 @@ jobs:
       - name: Minify-JS Action
         uses: jossydevers/minify-js@v1.0.1
         with:
-          directory: '_site/'
+          directory: '_site'
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
