@@ -44,6 +44,7 @@ if Dir.exist?(site_dir)
     ext = File.extname(file)
     begin
       content = File.read(file)
+      shouldwrite = true
       minified =
         case ext
         when '.css'
@@ -55,12 +56,16 @@ if Dir.exist?(site_dir)
         when '.js'
           Terser.new.compile(content).to_s
         else
+          shouldwrite = false
           content
         end
-      File.write(file, minified)
+      if shouldwrite
+        File.write(file, minified)
+        puts "Minified /#{file[(file.index("_site"))..-1]}"
+      end
     rescue => e
       msg = e.message.to_s.strip
-      puts "Minification failed for #{file}#{": #{msg}" unless msg.empty?}"
+      warn "Minification failed for #{file}#{": #{msg}" unless msg.empty?}"
     end
   end
 end
