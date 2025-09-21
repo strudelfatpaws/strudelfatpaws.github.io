@@ -49,8 +49,7 @@ jobs:
         run: ruby scripts/merge_media_queries.rb
 
       - name: Minify Action
-        uses: anthonyftwang/minify-action@v1.0.1
-        working-directory: ./_site
+        uses: dra1ex/minify-action@v1.0.3
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
