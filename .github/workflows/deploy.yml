@@ -48,10 +48,13 @@ jobs:
       - name: Additional CSS minification that jekll_minifier doesn't do
         run: ruby scripts/merge_media_queries.rb
 
-      - name: Minify-JS Action
-        uses: jossydevers/minify-js@v1.0.1
-        with:
-          directory: '_site'
+      - name: hold on im gonna do some debugging
+        run: |
+          apt-get install tree
+          tree -d /site/
+
+      - name: Minify Action
+        uses: anthonyftwang/minify-action@v1.0.1
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
