@@ -48,8 +48,15 @@ jobs:
         env:
           JEKYLL_ENV: production
       
+      # bruh its 2am and i dont care anymore.
+      # if this doesnt work then im deleting all the minification code
       - name: Minification Script
-        run: ruby scripts/minify.rb
+        run: |
+          gem install cssminify2 -v 2.1.0
+          gem install htmlcompressor -v 0.4.0
+          gem install json-minify -v 0.0.3
+          gem install terser -v 1.2.3
+          ruby scripts/minify.rb
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default

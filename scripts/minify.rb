@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require 'find'
-require 'minify_html'
+require 'cssminify2'
+require 'htmlcompressor'
+require 'json/minify'
+require 'terser'
 
 def merge_media_queries(css)
   media_blocks = Hash.new { |h, k| h[k] = [] }
@@ -28,19 +31,36 @@ def merge_media_queries(css)
     merged_css << "\n#{media} {#{blocks.join("")}}"
   end
   
-  merged_css.gsub(/\s+/, ' ')
+  merged_css
 end
 
 
 site_dir = File.join(Dir.pwd, '_site')
-extensions = %w[css html js]
+extensions = %w[css html js json]
 
 if Dir.exist?(site_dir)
   files = extensions.flat_map { |ext| Dir.glob(File.join(site_dir, '**', "*.#{ext}")) }
   files.each do |file|
-    content = File.read(file)
-    content = merge_media_queries(content) if File.extname(file) == '.css'
-    content = minify_html(content, { :minify_css => true, :minify_js => true })
-    File.write(file, content)
+    ext = File.extname(file)
+    begin
+      content = File.read(file)
+      minified =
+        case ext
+        when '.css'
+          CSSminify2.compress(content)
+        when '.html'
+          HtmlCompressor::Compressor.new.compress(content)
+        when '.json'
+          JsonMinify.minify(content)
+        when '.js'
+          Terser.new.compile(content).to_s
+        else
+          content
+        end
+      File.write(file, minified)
+    rescue => e
+      msg = e.message.to_s.strip
+      puts "Minification failed for #{file}#{": #{msg}" unless msg.empty?}"
+    end
   end
 end
