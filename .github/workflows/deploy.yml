@@ -48,12 +48,10 @@ jobs:
       - name: Additional CSS minification that jekll_minifier doesn't do
         run: ruby scripts/merge_media_queries.rb
 
-      - name: Go into './_site' directory for minifying
-        run: cd _site
-      - name: Minify Action
-        uses: dra1ex/minify-action@v1.0.3
-      - name: Back out of './_site' post-minify
-        run: cd ..
+      - name: Minify-JS Action
+        uses: jossydevers/minify-js@v1.0.1
+        with:
+          directory: './_site'
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
